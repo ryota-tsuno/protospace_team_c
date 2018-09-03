@@ -20,6 +20,7 @@ class PrototypesController < ApplicationController
   end
 
   def show
+      @prototype = Prototype.find(params[:id])   #add
   end
 
   private
