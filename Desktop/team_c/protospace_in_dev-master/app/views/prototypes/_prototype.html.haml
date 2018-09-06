@@ -1,15 +1,4 @@
 .col-sm-4.col-md-3.proto-content
-  -if user_signed_in? && current_user.id == prototype.user_id
-    %div
-      %button
-        Action
-      %button
-        %ul
-          %li
-            = link_to "Delete", "/prototypes/#{prototype.id}", method: :delete
-          %li
-            %a{href: ''}
-              Edit
 
   .thumbnail
     = link_to image_tag(prototype.set_main_thumbnail), prototype_path(prototype)
@@ -21,3 +10,10 @@
           = link_to prototype.user.name, user_path(prototype.user)
         .proto-posted
           = prototype.posted_date
+
+  -if user_signed_in? && current_user.id == prototype.user_id
+    %div.action-btn.btn.btn-default
+      = link_to "Delete", "/prototypes/#{prototype.id}", method: :delete
+    %div.action-btn.btn.btn-default
+      %a{href: ''}
+        Edit
