@@ -24,7 +24,6 @@ class PrototypesController < ApplicationController
     # if @prototype.save
      flash[:notice] = "投稿を編集しました"
      # redirect_to action: :index
-  
   end
 
   def show
