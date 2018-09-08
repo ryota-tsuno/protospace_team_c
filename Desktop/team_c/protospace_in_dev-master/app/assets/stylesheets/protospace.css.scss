@@ -314,10 +314,8 @@ body {
   }
 
   .btn {
-    font-size: 1rem;
     padding: 5px;
     min-width: 50px;
-    border: 1px solid #eee;
   }
 }
 
@@ -635,3 +633,9 @@ body {
   color: #a94442;
 }
 
+.proto-content {
+  .action-btn {
+    margin-top: -25px;
+    border: 1px solid #ddd;
+  }
+}

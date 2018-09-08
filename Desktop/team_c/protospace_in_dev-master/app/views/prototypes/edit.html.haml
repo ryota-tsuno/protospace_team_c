@@ -1,38 +1,69 @@
-.container.proto-edit
-  = form_for @prototype do |f|
-   %4
-    edit
-    = f.hidden_field :user_id, value: current_user.id
-    .col-md-8.col-md-offset-2
-      %header.row.user-nav.row
-        .col-md-12
-          %h4 Title
-          .proto-new-title
-            = f.text_field :title, required: true, autofocus: true, placeholder: "Input Title"
-      .row
-        .col-md-12
-          %h4 Main Thumbnail
-          .cover-image-upload#main_image_uploader
-            = f.fields_for :captured_images do |image|
-              %img
-              = image.file_field :content, required: true
-              = image.hidden_field :status, value: "main"
-        .col-md-12
-          %h4 Sub Thumbnails
-          %ul.proto-sub-list.list-group
-            - 3.times do |i|
-              %li.list-group-item.col-md-4
-                .image-upload
-                  = f.fields_for :captured_images do |image|
-                    %img
-                    = image.file_field :content
-                    = image.hidden_field :status, value: "sub"
-      .row.proto-description
-        .col-md-12
-          %h4 Catch Copy
-          = f.text_field :catch_copy, require: true, placeholder: "Input Catch Copy"
-        .col-md-12
-          %h4 Concept
-          = f.text_area :concept, require: true, placeholder: "Input Concept"
-      .row.text-center.proto-btn
-        = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"
+%body
+  .col-md-8.col-md-offset-2
+    %header.row.user-nav.row
+      .col-md-12
+        %input#prototype_title.proto-new-title{:name => "prototype[title]", :placeholder => "Title", :type => "text", :value => "wood"}/
+
+      .col-md-12
+        %ul.proto-sub-list.list-group
+          %li.list-group-item.col-md-4.sub_image_form.appear_form
+            #image_0_uploader.image-upload
+              %input#prototype_captured_images_attributes_1_name{:name => "prototype[captured_images_attributes][1][name]", :type => "file"}/
+              %img#sub_0_preview.sub_image{:src => ""}/
+              %input#prototype_captured_images_attributes_1_property{:name => "prototype[captured_images_attributes][1][property]", :type => "hidden", :value => "sub"}/
+              %input#prototype_captured_images_attributes_1_id{:name => "prototype[captured_images_attributes][1][id]", :type => "hidden", :value => "1105"}/
+          %li.list-group-item.col-md-4.sub_image_form.hide_form
+            #image_1_uploader.image-upload
+              %input#prototype_captured_images_attributes_2_name{:name => "prototype[captured_images_attributes][2][name]", :type => "file"}/
+              %img#sub_1_preview.sub_image/
+              %input#prototype_captured_images_attributes_2_property{:name => "prototype[captured_images_attributes][2][property]", :type => "hidden", :value => "sub"}/
+
+    .row.proto-description
+      .col-md-12
+        %input#prototype_catchcopy{:name => "prototype[catchcopy]", :placeholder => "Catch Copy", :type => "text", :value => ""}/
+      .col-md-12
+        %textarea#prototype_concept{:cols => "30", :name => "prototype[concept]", :placeholder => "Concept", :rows => "4"}
+          :preserve
+
+      .col-md-12
+  %h4 Tag List
+  .row
+    .col-md-3
+      %input#prototype_tag_list_{:name => "prototype[tag_list][]", :placeholder => "Web Design", :type => "text"}/
+    .col-md-3
+      %input#prototype_tag_list_{:name => "prototype[tag_list][]", :placeholder => "UI", :type => "text"}/
+    .col-md-3
+      %input#prototype_tag_list_{:name => "prototype[tag_list][]", :placeholder => "Application", :type => "text"}/
+.row.text-center.proto-btn
+  %input.btn.btn-lg.btn-primary.btn-block{:name => "commit", :type => "submit", :value => "Publish"}/
+:javascript
+  $(function(){
+    var cover_image = $(".cover-image-upload input[type = file]");
+    var sub_0_image = $("#image_0_uploader input[type = file]");
+    var sub_1_image = $("#image_1_uploader input[type = file]");
+    var sub_2_image = $("#image_2_uploader input[type = file]");
+
+    cover_image.change(function(){
+      upload_main_image(this)
+    });
+
+    sub_0_image.change(function(){
+      upload_sub_image(this, 0)
+    });
+
+    sub_1_image.change(function(){
+      upload_sub_image(this, 1)
+    });
+
+    sub_2_image.change(function(){
+      upload_sub_image(this, 2)
+    });
+
+    check_sub_image(0)
+    check_sub_image(1)
+    check_sub_image(2)
+
+    $(".add_sub_image_form").click(function(){
+      hide_add_mark()
+    });
+  });
