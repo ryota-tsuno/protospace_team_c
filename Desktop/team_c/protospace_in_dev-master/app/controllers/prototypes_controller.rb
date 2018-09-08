@@ -19,15 +19,19 @@ class PrototypesController < ApplicationController
      end
   end
 
+  def show
+  end
+
   def edit
     @prototype = Prototype.find(params[:id])
   end
 
-  def show
+  def destroy
+    @prototype = Prototype.find(params[:id])
+    @prototype.destroy if @prototype.user_id == current_user.id
   end
 
   private
-
   def set_prototype
     @prototype = Prototype.find(params[:id])
   end
