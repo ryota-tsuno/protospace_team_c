@@ -110,11 +110,7 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
-<<<<<<< HEAD
-    loofah (2.1.1)
-=======
     loofah (2.2.2)
->>>>>>> master
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
@@ -231,11 +227,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-<<<<<<< HEAD
-  mysql2 (~> 0.3.18)
-=======
   mysql2 (~> 0.3.20)
->>>>>>> master
   pry-rails
   rails (= 4.2.8)
   rmagick
@@ -247,8 +239,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-<<<<<<< HEAD
-   1.16.4
-=======
    1.16.3
->>>>>>> master
