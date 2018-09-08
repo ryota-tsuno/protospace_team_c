@@ -19,11 +19,11 @@ class PrototypesController < ApplicationController
      end
   end
 
-  def edit
-    @prototype = Prototype.find(params[:id])
+  def show
   end
 
-  def show
+  def edit
+    @prototype = Prototype.find(params[:id])
   end
 
   def destroy

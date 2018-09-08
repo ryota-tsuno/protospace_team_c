@@ -15,5 +15,4 @@
     %div.action-btn.btn.btn-default
       = link_to "Delete", "/prototypes/#{prototype.id}", method: :delete
     %div.action-btn.btn.btn-default
-      %a{href: ''}
-        Edit
+      = link_to "Edit", "/prototypes/#{prototype.id}/edit", method: :get
