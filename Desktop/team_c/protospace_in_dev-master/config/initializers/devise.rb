@@ -90,7 +90,6 @@ Devise.setup do |config|
   # from the server. You can disable this option at your own risk.
   # config.clean_up_csrf_token_on_authentication = true
 
-
   # When false, Devise will not attempt to reload routes on eager load.
   # This can reduce the time taken to boot the app but if your application
   # requires the Devise mappings to be loaded during boot time the application
@@ -100,6 +99,7 @@ Devise.setup do |config|
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 11. If
   # using other algorithms, it sets how many times you want the password to be hashed.
+
 
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 10. If
@@ -122,9 +122,10 @@ Devise.setup do |config|
 
   # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
+
   # encryptor), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
-  config.stretches = Rails.env.test? ? 1 : 10
+  # config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
   # config.pepper = 'e631ea2ef98eb22a01a2b28c3833d8fbdd4391cfbd2ff8a2a6fe471a59ccad6216df86e84c99e5708436087cfa5bb49ce84021af374d36a5c852d64878c607c3'
