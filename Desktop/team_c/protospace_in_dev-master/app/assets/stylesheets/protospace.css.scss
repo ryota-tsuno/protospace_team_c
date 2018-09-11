@@ -639,3 +639,17 @@ body {
     border: 1px solid #ddd;
   }
 }
+
+.delete-comment {
+  width: 100%;
+  margin: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.delete {
+  width: 100%;
+  .delete-btn {
+    margin: 10px 48% 50px;
+  }
+}
